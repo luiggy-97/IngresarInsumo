@@ -1,0 +1,53 @@
+<div class="col-md-6 offset-md-3">
+    <div class="card">
+        <div class="card-header">
+            <h1 align="center">Registro de Insumos</h1>
+        </div>
+        <div class="card-body">
+            <h3>Insumos</h3>
+            <table>
+                <tr>
+
+                </tr>
+            </table>
+            {{#if users}}
+            <ul class="list-group">
+                {{#each users}}
+                <li class="list-group-item d-flex justify-content-between
+                align-items-center">
+                    Insumo: {{nombre}}<br>
+                    Cantidad: {{cantidad}} <br>
+                    Descripción: {{descripcion}}
+                    <a href="/delete-user/{{@key}}" class="btn btn-danger">
+                        Eliminar
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+            {{else}}
+            <p>Agradecemos su donación</p>
+            {{/if}}
+        </div>
+
+        <div class="card-footer">
+            <form action="/new-user" method="Post" action="/send.php">
+                <div class="form-group">
+                    <input type="text" name="nombre" placeholder="Insumo" class="form-control" minlength="2"
+                        maxlength="20" required pattern="[A-Za-z0-9]+" title="Solo puede ingresar letras y numeros"
+                        autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="cantidad" placeholder="Cantidad" class="form-control" minlength="1"
+                        maxlength="4" required pattern="[0-9]+" title="Solo puede ingresar numeros">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="descripcion" placeholder="Descripcion" class="form-control" minlength="2"
+                        maxlength="80" required pattern="[A-Za-z]+" title="Solo puede ingresar letras">
+                </div>
+                <button class="btn btn-primary btn-block">
+                    Guardar Insumo
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
